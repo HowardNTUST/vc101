@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Howard Chung | AI 企業內訓與專案實戰</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: #050816;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        overflow-x: hidden;
+        background: #050816;
+      }
+
+      body {
+        color: #f8fbff;
+      }
+
+      .video-wrap {
+        position: fixed;
+        inset: 0;
+        overflow: hidden;
+        z-index: -1;
+      }
+
+      .video-wrap video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: auto;
+        height: 130%;
+        min-width: 100%;
+        min-height: 100%;
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+        filter: brightness(0.45) saturate(1.05);
+      }
+
+      .overlay {
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(circle at top left, rgba(88, 144, 255, 0.16), transparent 28%),
+          radial-gradient(circle at bottom right, rgba(117, 219, 237, 0.14), transparent 32%),
+          linear-gradient(180deg, rgba(5, 8, 22, 0.18), rgba(5, 8, 22, 0.84));
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .page-shell {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 40px 24px;
+        z-index: 1;
+      }
+
+      .hero {
+        width: min(1080px, 100%);
+        backdrop-filter: blur(18px);
+        background: rgba(4, 10, 27, 0.52);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 32px;
+        padding: 64px 48px;
+        box-shadow: 0 48px 120px rgba(1, 8, 26, 0.32);
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        margin-bottom: 24px;
+        padding: 10px 18px;
+        border-radius: 999px;
+        background: rgba(54, 103, 255, 0.16);
+        color: #a6c6ff;
+        font-size: 0.92rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+
+      .hero-title {
+        margin: 0;
+        font-size: clamp(3rem, 5vw, 5rem);
+        line-height: 0.96;
+        letter-spacing: -0.04em;
+      }
+
+      .hero-title strong {
+        color: #ffffff;
+      }
+
+      .hero-copy {
+        margin: 24px auto 0;
+        max-width: 760px;
+        font-size: 1.08rem;
+        line-height: 1.85;
+        color: rgba(248, 251, 255, 0.82);
+      }
+
+      .hero-copy strong {
+        color: #ffffff;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 40px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 170px;
+        border-radius: 999px;
+        border: 1px solid transparent;
+        padding: 16px 26px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #60a5ff 0%, #2dd4bf 100%);
+        color: #051321;
+        box-shadow: 0 18px 40px rgba(45, 212, 191, 0.22);
+      }
+
+      .btn-secondary {
+        color: #e2e8f0;
+        border-color: rgba(226, 232, 240, 0.24);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .hero-note {
+        margin-top: 36px;
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      @media (max-width: 720px) {
+        .hero {
+          padding: 40px 24px;
+          border-radius: 28px;
+        }
+
+        .hero-actions {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="video-wrap">
+      <video autoplay muted loop playsinline preload="auto" src="介紹範例.mp4"></video>
+    </div>
+    <div class="overlay"></div>
+
+    <main class="page-shell">
+      <section class="hero">
+        <div class="eyebrow">Howard Chung</div>
+        <h1 class="hero-title">AI 企業內訓與專案實戰<br /><strong>影像式品牌形象</strong></h1>
+        <p class="hero-copy">透過滿版動態影片呈現，打造專業、清晰且高質感的入口頁面。這是一個為企業內訓、專案展示與品牌導入打造的視覺化登陸頁。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#about">立即了解</a>
+          <a class="btn btn-secondary" href="#contact">聯絡我</a>
+        </div>
+        <p class="hero-note">影片自動播放、重複循環，並採用現代型體與高對比排版，讓每位訪客一進網站就感受到你的專業定位。</p>
+      </section>
+    </main>
+  </body>
+</html>

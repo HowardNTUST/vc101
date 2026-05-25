@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Howard Chung 鍾皓軒｜AI Consultant, Prompt Engineer, AI Product Manager. Practical AI Marketing solutions for business growth." />
+  <title>Howard Chung｜AI Consultant & Marketing Data Science Expert</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Tailwind Theme Customization -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#005BAC',
+            secondary: '#2F8CFF',
+            accent: '#F5A623',
+            teal: '#00A99D',
+            green: '#74C69D',
+            gold: '#FFC857',
+            ink: '#2F3A4A',
+            muted: '#6B778C',
+            mist: '#F7F9FC',
+            border: '#D9E1EA'
+          },
+          boxShadow: {
+            glow: '0 24px 80px rgba(0, 91, 172, 0.18)',
+            mint: '0 18px 50px rgba(0, 169, 157, 0.24)'
+          },
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans TC', 'ui-sans-serif', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* =========================================================
+      Howard Chung One-Page Website
+      Style: Elegant AI Tech / White Futurism / Premium SaaS
+      You can modify colors in :root and Tailwind config above.
+    ========================================================= */
+
+    :root {
+      --primary: #005BAC;
+      --secondary: #2F8CFF;
+      --accent: #F5A623;
+      --teal: #00A99D;
+      --green: #74C69D;
+      --gold: #FFC857;
+      --ink: #2F3A4A;
+      --muted: #6B778C;
+      --mist: #F7F9FC;
+      --border: #D9E1EA;
+      --line: rgba(0, 91, 172, 0.16);
+      --glass: rgba(255, 255, 255, 0.72);
+      --glass-strong: rgba(255, 255, 255, 0.88);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 18%, rgba(0, 91, 172, 0.12), transparent 26rem),
+        radial-gradient(circle at 82% 10%, rgba(47, 140, 255, 0.12), transparent 24rem),
+        radial-gradient(circle at 62% 72%, rgba(0, 169, 157, 0.08), transparent 26rem),
+        linear-gradient(135deg, #F7F9FC 0%, #FFFFFF 45%, #F7F9FC 100%);
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    /* Subtle AI grid background */
+    .tech-grid {
+      position: fixed;
+      inset: 0;
+      z-index: -4;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(0, 91, 172, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 91, 172, 0.08) 1px, transparent 1px);
+      background-size: 58px 58px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.88), rgba(0,0,0,0.38), rgba(0,0,0,0.16));
+    }
+
+    /* Soft animated gradient aura */
+    .gradient-aura {
+      position: fixed;
+      inset: -18%;
+      z-index: -5;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 20% 28%, rgba(0, 91, 172, 0.16), transparent 22%),
+        radial-gradient(circle at 82% 24%, rgba(47, 140, 255, 0.12), transparent 24%),
+        radial-gradient(circle at 55% 78%, rgba(0, 169, 157, 0.12), transparent 22%);
+      filter: blur(18px);
+      animation: auraMove 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes auraMove {
+      0% { transform: translate3d(-1.5%, -1%, 0) scale(1); }
+      50% { transform: translate3d(1%, 1.8%, 0) scale(1.04); }
+      100% { transform: translate3d(2%, -0.8%, 0) scale(1.02); }
+    }
+
+    /* Canvas for particles and data-flow nodes */
+    #particle-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      pointer-events: none;
+      opacity: 0.68;
+    }
+
+    /* Animated light data lines */
+    .data-streams {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .data-streams span {
+      position: absolute;
+      display: block;
+      width: 180px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0, 91, 172, 0.22), rgba(0, 169, 157, 0.18), transparent);
+      opacity: 0.55;
+      transform: rotate(-18deg);
+      animation: streamFlow 10s linear infinite;
+    }
+
+    .data-streams span:nth-child(1) { top: 18%; left: -16%; animation-delay: 0s; }
+    .data-streams span:nth-child(2) { top: 38%; left: -22%; animation-delay: 2.2s; width: 260px; }
+    .data-streams span:nth-child(3) { top: 62%; left: -18%; animation-delay: 4.1s; width: 220px; }
+    .data-streams span:nth-child(4) { top: 78%; left: -24%; animation-delay: 6.4s; width: 320px; }
+    .data-streams span:nth-child(5) { top: 28%; left: -20%; animation-delay: 8.3s; width: 210px; }
+
+    @keyframes streamFlow {
+      0% { transform: translateX(0) rotate(-18deg); opacity: 0; }
+      12% { opacity: 0.58; }
+      84% { opacity: 0.42; }
+      100% { transform: translateX(128vw) rotate(-18deg); opacity: 0; }
+    }
+
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.66);
+      border: 1px solid rgba(0, 91, 172, 0.12);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      transition: all 0.35s ease;
+    }
+
+    .glass-nav.scrolled {
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: 0 14px 42px rgba(15, 23, 42, 0.08);
+      border-color: rgba(0, 91, 172, 0.18);
+    }
+
+    .nav-link {
+      position: relative;
+      color: var(--muted);
+      transition: color 0.25s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+      transition: width 0.25s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--teal));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .typing-cursor::after {
+      content: '|';
+      display: inline-block;
+      margin-left: 0.12em;
+      color: var(--accent);
+      animation: blink 0.9s infinite;
+    }
+
+    @keyframes blink {
+      0%, 45% { opacity: 1; }
+      46%, 100% { opacity: 0; }
+    }
+
+    .glass-card {
+      position: relative;
+      background: linear-gradient(145deg, rgba(255,255,255,0.82), rgba(255,255,255,0.58));
+      border: 1px solid rgba(0, 91, 172, 0.12);
+      box-shadow: 0 18px 60px rgba(15, 23, 42, 0.06);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      overflow: hidden;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      background:
+        radial-gradient(circle at var(--mx, 50%) var(--my, 40%), rgba(0, 169, 157, 0.16), transparent 22rem),
+        linear-gradient(135deg, rgba(0, 91, 172, 0.08), rgba(47, 140, 255, 0.06), transparent);
+      transition: opacity 0.35s ease;
+      pointer-events: none;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(0, 91, 172, 0.32);
+      box-shadow: 0 28px 85px rgba(0, 91, 172, 0.14), 0 14px 45px rgba(0, 169, 157, 0.12);
+    }
+
+    .glass-card:hover::before {
+      opacity: 1;
+    }
+
+    .section-title {
+      letter-spacing: -0.04em;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      color: var(--primary);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .eyebrow::before {
+      content: '';
+      width: 2.35rem;
+      height: 1px;
+      background: linear-gradient(90deg, var(--primary), var(--teal));
+    }
+
+    .cta-btn {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      border: 1px solid rgba(0, 91, 172, 0.28);
+      background:
+        linear-gradient(#ffffff, #ffffff) padding-box,
+        linear-gradient(90deg, rgba(0, 91, 172, 0.85), rgba(47, 140, 255, 0.78), rgba(245, 166, 35, 0.72)) border-box;
+      transition: all 0.32s ease;
+    }
+
+    .cta-btn::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      z-index: -1;
+      border-radius: inherit;
+      background: radial-gradient(circle at 50% 50%, rgba(245, 166, 35, 0.36), transparent 62%);
+      opacity: 0;
+      filter: blur(12px);
+      transition: opacity 0.32s ease;
+    }
+
+    .cta-btn .status {
+      display: block;
+      font-size: 0.68rem;
+      line-height: 1;
+      color: var(--accent);
+      max-height: 0;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: all 0.28s ease;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-4px);
+      border-color: rgba(245, 166, 35, 0.68);
+      box-shadow: var(--mint);
+    }
+
+    .cta-btn:hover::before {
+      opacity: 1;
+    }
+
+    .cta-btn:hover .status {
+      margin-top: 0.45rem;
+      max-height: 1rem;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .chip {
+      background: linear-gradient(90deg, rgba(0, 91, 172, 0.10), rgba(47, 140, 255, 0.10));
+      border: 1px solid rgba(0, 91, 172, 0.16);
+    }
+
+    .icon-badge {
+      display: inline-grid;
+      place-items: center;
+      width: 2.65rem;
+      height: 2.65rem;
+      border-radius: 1rem;
+      background: linear-gradient(135deg, rgba(0, 91, 172, 0.12), rgba(47, 140, 255, 0.12), rgba(0, 169, 157, 0.10));
+      color: var(--primary);
+      border: 1px solid rgba(0, 91, 172, 0.16);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stagger > * {
+      transition-delay: calc(var(--i, 0) * 90ms);
+    }
+
+    .mobile-menu {
+      transform: translateY(-10px);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.28s ease;
+    }
+
+    .mobile-menu.open {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .hamburger-line {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--ink);
+      border-radius: 999px;
+      transition: all 0.25s ease;
+    }
+
+    .hamburger.active .hamburger-line:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.active .hamburger-line:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active .hamburger-line:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .hero-orb {
+      position: absolute;
+      border-radius: 9999px;
+      filter: blur(3px);
+      opacity: 0.7;
+      animation: floatOrb 7s ease-in-out infinite alternate;
+    }
+
+    .hero-orb.one {
+      width: 14rem;
+      height: 14rem;
+      right: 5%;
+      top: 10%;
+      background: radial-gradient(circle, rgba(0, 91, 172, 0.14), transparent 70%);
+    }
+
+    .hero-orb.two {
+      width: 10rem;
+      height: 10rem;
+      right: 18%;
+      bottom: 4%;
+      animation-delay: 1.5s;
+      background: radial-gradient(circle, rgba(0, 169, 157, 0.14), transparent 70%);
+    }
+
+    @keyframes floatOrb {
+      from { transform: translate3d(0, 0, 0); }
+      to { transform: translate3d(18px, -22px, 0); }
+    }
+
+    .mock-dashboard {
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.88), rgba(255,255,255,0.62));
+      border: 1px solid rgba(0, 91, 172, 0.16);
+      box-shadow: 0 24px 80px rgba(0, 91, 172, 0.14);
+      backdrop-filter: blur(20px);
+    }
+
+    .hero-portrait {
+      width: clamp(96px, 10vw, 140px);
+      height: clamp(96px, 10vw, 140px);
+      border-radius: 1.75rem;
+      border: 2px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 26px 70px rgba(0, 91, 172, 0.22);
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: 50% 32%;
+      background: transparent;
+    }
+
+    .hero-portrait.large {
+      width: 260px;
+      height: 360px;
+      border-radius: 18px;
+      flex: 0 0 auto;
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(247,249,252,0.9));
+      border: 1px solid rgba(0,91,172,0.06);
+      box-shadow: 0 18px 40px rgba(15,23,42,0.06);
+    }
+
+    .about-portrait-large {
+      width: 100%;
+      max-width: 980px;
+      border-radius: 24px;
+      border: 1px solid rgba(0, 91, 172, 0.12);
+      box-shadow: 0 20px 60px rgba(0, 91, 172, 0.12);
+      background: rgba(255, 255, 255, 0.85);
+      padding: 14px;
+    }
+
+    .about-portrait-large img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 18px;
+      object-fit: cover;
+      object-position: 50% 20%;
+    }
+
+    @media (min-width: 1400px) {
+      .hero-portrait.large {
+        width: 320px;
+        height: 420px;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .hero-portrait {
+        width: 120px;
+        height: 120px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-portrait {
+        width: 88px;
+        height: 88px;
+        border-radius: 1.25rem;
+      }
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(10, 20, 40, 0.75);
+      backdrop-filter: blur(6px);
+      padding: 1.5rem;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-panel {
+      position: relative;
+      max-width: min(1100px, 92vw);
+      max-height: 82vh;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.45);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .lightbox-panel img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-height: 82vh;
+      object-fit: contain;
+      background: rgba(12, 18, 30, 0.45);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      background: rgba(10, 20, 40, 0.65);
+      color: #ffffff;
+      font-size: 1.2rem;
+      font-weight: 700;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+    }
+
+    .bar {
+      width: 14px;
+      border-radius: 999px 999px 0 0;
+      background: linear-gradient(180deg, rgba(0, 91, 172, 0.92), rgba(47, 140, 255, 0.78), rgba(0, 169, 157, 0.76));
+      animation: barPulse 2.8s ease-in-out infinite alternate;
+    }
+
+    .bar:nth-child(2) { animation-delay: 0.2s; }
+    .bar:nth-child(3) { animation-delay: 0.4s; }
+    .bar:nth-child(4) { animation-delay: 0.6s; }
+    .bar:nth-child(5) { animation-delay: 0.8s; }
+
+    @keyframes barPulse {
+      from { transform: scaleY(0.82); opacity: 0.72; }
+      to { transform: scaleY(1); opacity: 1; }
+    }
+
+    .flow-line {
+      stroke-dasharray: 8 10;
+      animation: dash 7s linear infinite;
+    }
+
+    @keyframes dash {
+      to { stroke-dashoffset: -180; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+
+    /* Tailwind palette overrides to match the provided color system */
+    .text-blue-700 { color: var(--primary) !important; }
+    .text-blue-800 { color: var(--primary) !important; }
+    .text-blue-600 { color: var(--secondary) !important; }
+    .text-emerald-500,
+    .text-emerald-600,
+    .text-emerald-700 { color: var(--teal) !important; }
+    .text-violet-700 { color: var(--secondary) !important; }
+    .text-slate-700 { color: var(--ink) !important; }
+    .text-slate-600 { color: var(--muted) !important; }
+    .text-slate-500 { color: var(--muted) !important; }
+    .text-slate-400 { color: rgba(107, 119, 140, 0.7) !important; }
+    .text-slate-900 { color: var(--ink) !important; }
+
+    .border-blue-100 { border-color: var(--border) !important; }
+    .border-emerald-100 { border-color: rgba(0, 169, 157, 0.22) !important; }
+
+    .bg-blue-50 { background-color: var(--mist) !important; }
+    .bg-emerald-50 { background-color: rgba(0, 169, 157, 0.12) !important; }
+    .bg-blue-300\/20 { background-color: rgba(0, 91, 172, 0.2) !important; }
+    .bg-emerald-300\/20 { background-color: rgba(0, 169, 157, 0.2) !important; }
+
+    .hover\:bg-blue-50:hover { background-color: var(--mist) !important; }
+    .hover\:text-emerald-600:hover { color: var(--teal) !important; }
+    .hover\:text-blue-700:hover { color: var(--primary) !important; }
+    .hover\:text-blue-800:hover { color: var(--secondary) !important; }
+  </style>
+</head>
+
+<body class="font-sans antialiased">
+  <!-- White technology background layers -->
+  <div class="gradient-aura" aria-hidden="true"></div>
+  <div class="tech-grid" aria-hidden="true"></div>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <div class="data-streams" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <!-- =========================================================
+    Header / Navigation
+  ========================================================= -->
+  <header id="site-header" class="fixed left-0 right-0 top-0 z-50 px-4 pt-4">
+    <nav class="glass-nav mx-auto flex max-w-7xl items-center justify-between rounded-2xl px-4 py-3 md:px-6" aria-label="Main navigation">
+      <a href="#home" class="flex items-center gap-3" aria-label="Howard Chung homepage">
+        <span class="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-[#005BAC] via-[#2F8CFF] to-[#00A99D] text-sm font-black text-white shadow-glow">HC</span>
+        <span>
+          <span class="block text-sm font-black tracking-tight text-ink">Howard Chung</span>
+          <span class="block text-xs font-medium text-slate-500">AI × Data × Marketing</span>
+        </span>
+      </a>
+
+      <div class="hidden items-center gap-8 lg:flex">
+        <a class="nav-link text-sm font-semibold" href="#home">首頁</a>
+        <a class="nav-link text-sm font-semibold" href="#about">關於鍾皓軒</a>
+        <a class="nav-link text-sm font-semibold" href="#solutions">AI 解決方案</a>
+        <a class="nav-link text-sm font-semibold" href="#cases">實戰案例</a>
+        <a class="nav-link text-sm font-semibold" href="#contact">預約諮詢</a>
+      </div>
+
+      <a href="https://calendar.app.google/QZTvS9433tJHJcwT6" target="_blank" rel="noopener noreferrer" class="cta-btn hidden rounded-full px-5 py-3 text-center text-sm font-bold text-blue-700 lg:inline-flex lg:flex-col">
+        預約諮詢
+        <span class="status">Status: Ready to Connect</span>
+      </a>
+
+      <button id="mobile-menu-btn" class="hamburger flex h-11 w-11 flex-col items-center justify-center gap-[5px] rounded-xl border border-blue-100 bg-white/70 lg:hidden" aria-label="Open mobile menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu mx-auto mt-3 max-w-7xl rounded-2xl border border-blue-100 bg-white/90 p-4 shadow-glow backdrop-blur-2xl lg:hidden">
+      <div class="grid gap-2">
+        <a class="mobile-nav-link rounded-xl px-4 py-3 text-sm font-bold text-slate-700 hover:bg-blue-50" href="#home">首頁</a>
+        <a class="mobile-nav-link rounded-xl px-4 py-3 text-sm font-bold text-slate-700 hover:bg-blue-50" href="#about">關於鍾皓軒</a>
+        <a class="mobile-nav-link rounded-xl px-4 py-3 text-sm font-bold text-slate-700 hover:bg-blue-50" href="#solutions">AI 解決方案</a>
+        <a class="mobile-nav-link rounded-xl px-4 py-3 text-sm font-bold text-slate-700 hover:bg-blue-50" href="#cases">實戰案例</a>
+        <a class="mobile-nav-link rounded-xl px-4 py-3 text-sm font-bold text-slate-700 hover:bg-blue-50" href="#contact">預約諮詢</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- =========================================================
+      Hero Section
+    ========================================================= -->
+    <section id="home" class="relative flex min-h-screen items-center overflow-hidden px-4 pb-20 pt-32 md:pt-36">
+      <div class="hero-orb one" aria-hidden="true"></div>
+      <div class="hero-orb two" aria-hidden="true"></div>
+
+      <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.06fr_0.94fr]">
+        <div class="reveal">
+          <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white/70 px-4 py-2 text-sm font-bold text-blue-700 shadow-sm backdrop-blur-xl">
+            <span class="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_16px_rgba(0,169,157,0.8)]"></span>
+            Enterprise AI Consultant in Taiwan
+          </div>
+
+          <h1 class="section-title min-h-[9.5rem] text-5xl font-black leading-[1.04] tracking-tight text-ink md:min-h-[12rem] md:text-7xl xl:text-8xl">
+            <span id="typewriter" class="typing-cursor gradient-text"></span>
+          </h1>
+
+          <p class="mt-7 max-w-3xl text-xl leading-8 text-slate-600 md:text-2xl">
+            Howard helps businesses transform knowledge, workflows, and customer experience through practical AI Marketing solutions.
+          </p>
+
+          <p class="mt-5 max-w-2xl text-base leading-8 text-slate-600 md:text-lg">
+            結合 AI、資料科學與行銷策略，協助企業把分散知識、重複流程與客戶互動，轉化為可落地、可衡量、可持續成長的智慧系統。
+          </p>
+
+          <div class="mt-9 flex flex-col gap-4 sm:flex-row">
+            <a href="https://calendar.app.google/QZTvS9433tJHJcwT6" target="_blank" rel="noopener noreferrer" class="cta-btn rounded-full px-7 py-4 text-center text-base font-black text-blue-700">
+              預約 AI 轉型諮詢
+              <span class="status">Status: Ready to Connect</span>
+            </a>
+            <a href="#solutions" class="cta-btn rounded-full px-7 py-4 text-center text-base font-black text-slate-800">
+              探索解決方案
+              <span class="status">Status: Ready to Connect</span>
+            </a>
+          </div>
+
+          <div class="mt-10 grid max-w-2xl grid-cols-2 gap-3 sm:grid-cols-4">
+            <div class="chip rounded-2xl px-4 py-3 text-center text-sm font-bold text-slate-700">AI 轉型</div>
+            <div class="chip rounded-2xl px-4 py-3 text-center text-sm font-bold text-slate-700">資料科學</div>
+            <div class="chip rounded-2xl px-4 py-3 text-center text-sm font-bold text-slate-700">Prompt Engineering</div>
+            <div class="chip rounded-2xl px-4 py-3 text-center text-sm font-bold text-slate-700">行銷策略</div>
+          </div>
+        </div>
+
+        <!-- Premium SaaS-style visual dashboard -->
+        <div class="reveal relative">
+          <div class="mock-dashboard rounded-[2rem] p-5 md:p-7">
+            <div class="mb-6 flex items-center justify-between">
+              <div>
+                <p class="text-sm font-bold text-blue-700">AI Growth Console</p>
+                <h2 class="mt-1 text-2xl font-black tracking-tight text-ink">Knowledge → Workflow → Impact</h2>
+              </div>
+              <div class="rounded-full border border-emerald-100 bg-emerald-50 px-3 py-1 text-xs font-black text-emerald-700">LIVE</div>
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-3">
+              <div class="glass-card rounded-2xl p-4">
+                <p class="text-xs font-bold uppercase tracking-widest text-slate-400">AI Readiness</p>
+                <p class="mt-4 text-3xl font-black text-ink">92%</p>
+                <p class="mt-2 text-xs text-slate-500">Strategy alignment</p>
+              </div>
+              <div class="glass-card rounded-2xl p-4">
+                <p class="text-xs font-bold uppercase tracking-widest text-slate-400">Workflow</p>
+                <p class="mt-4 text-3xl font-black text-ink">3.6x</p>
+                <p class="mt-2 text-xs text-slate-500">Automation lift</p>
+              </div>
+              <div class="glass-card rounded-2xl p-4">
+                <p class="text-xs font-bold uppercase tracking-widest text-slate-400">Insights</p>
+                <p class="mt-4 text-3xl font-black text-ink">24/7</p>
+                <p class="mt-2 text-xs text-slate-500">Knowledge access</p>
+              </div>
+            </div>
+
+            <div class="mt-5 grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
+              <div class="glass-card rounded-3xl p-5">
+                <div class="mb-5 flex items-center justify-between">
+                  <p class="font-black text-ink">Growth Signal</p>
+                  <span class="text-xs font-bold text-emerald-600">+38%</span>
+                </div>
+                <div class="flex h-44 items-end justify-between gap-3">
+                  <span class="bar h-[42%]"></span>
+                  <span class="bar h-[68%]"></span>
+                  <span class="bar h-[54%]"></span>
+                  <span class="bar h-[82%]"></span>
+                  <span class="bar h-[96%]"></span>
+                </div>
+              </div>
+
+              <div class="glass-card rounded-3xl p-5">
+                <div class="mb-4 flex items-center gap-3">
+                  <span class="icon-badge">✦</span>
+                  <div>
+                    <p class="font-black text-ink">AI System Map</p>
+                    <p class="text-sm text-slate-500">Data flow quietly operating</p>
+                  </div>
+                </div>
+                <svg class="h-44 w-full" viewBox="0 0 420 180" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path class="flow-line" d="M38 92 C104 30 156 150 220 88 C278 34 322 52 382 92" stroke="url(#g1)" stroke-width="3" stroke-linecap="round"/>
+                  <path class="flow-line" d="M42 132 C118 92 154 54 224 120 C274 166 330 142 384 110" stroke="url(#g2)" stroke-width="2" stroke-linecap="round" opacity="0.72"/>
+                  <circle cx="38" cy="92" r="8" fill="#005BAC" opacity="0.85"/>
+                  <circle cx="220" cy="88" r="10" fill="#2F8CFF" opacity="0.8"/>
+                  <circle cx="382" cy="92" r="8" fill="#00A99D" opacity="0.8"/>
+                  <circle cx="224" cy="120" r="6" fill="#005BAC" opacity="0.48"/>
+                  <defs>
+                    <linearGradient id="g1" x1="38" y1="92" x2="382" y2="92" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#005BAC"/>
+                      <stop offset="0.52" stop-color="#2F8CFF"/>
+                      <stop offset="1" stop-color="#00A99D"/>
+                    </linearGradient>
+                    <linearGradient id="g2" x1="42" y1="132" x2="384" y2="110" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#00A99D"/>
+                      <stop offset="0.5" stop-color="#005BAC"/>
+                      <stop offset="1" stop-color="#2F8CFF"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+      About Howard
+    ========================================================= -->
+    <section id="about" class="px-4 py-24">
+      <div class="mx-auto max-w-7xl">
+        <div class="grid gap-8 lg:grid-cols-[0.86fr_1.14fr] lg:items-start">
+          <div class="reveal">
+            <p class="eyebrow">AI Consultant / Prompt Engineer / AI Product Manager</p>
+            <h2 class="section-title mt-5 text-4xl font-black tracking-tight md:text-6xl">關於鍾皓軒</h2>
+            <p class="mt-6 text-lg leading-9 text-slate-600">
+              我是鍾皓軒 Howard Chung，臺灣行銷研究有限公司創辦人，專注於 AI、資料科學與行銷策略應用的企業顧問與課程講師。
+            </p>
+            <p class="mt-4 text-lg leading-9 text-slate-600">
+              擁有 8 年資料科學與產業教學經驗，長期協助企業、學術單位與專業人士理解數據、導入 AI，並將分析結果轉化為可執行的商業策略與成長方案。我的核心信念是：
+              <span class="font-black text-blue-700">企業聽得懂、團隊學得會、現場用得上。</span>
+            </p>
+          </div>
+
+          <div class="lg:col-start-2">
+            <div class="stagger grid gap-4 sm:grid-cols-2">
+              <div class="glass-card reveal rounded-3xl p-6" style="--i:0">
+                <span class="icon-badge">8+</span>
+                <h3 class="mt-5 text-xl font-black">8+ 年資料科學與教學經驗</h3>
+                <p class="mt-3 leading-7 text-slate-600">從 Python 分析、LLM 應用到企業教育訓練，協助團隊建立可持續成長的 AI 能力。</p>
+              </div>
+              <div class="glass-card reveal rounded-3xl p-6" style="--i:1">
+                <span class="icon-badge">⌁</span>
+                <h3 class="mt-5 text-xl font-black">多產業 AI / 數據顧問經驗</h3>
+                <p class="mt-3 leading-7 text-slate-600">服務金融、製造、醫療、出版、高教、文教與專業培訓市場，理解不同場景的落地需求。</p>
+              </div>
+              <div class="glass-card reveal rounded-3xl p-6" style="--i:2">
+                <span class="icon-badge">◈</span>
+                <h3 class="mt-5 text-xl font-black">企業內訓與課程講師</h3>
+                <p class="mt-3 leading-7 text-slate-600">曾為中華電信、長榮航空、資策會、工研院、證基會、台科大、北市大等單位授課。</p>
+              </div>
+              <div class="glass-card reveal rounded-3xl p-6" style="--i:3">
+                <span class="icon-badge">AI</span>
+                <h3 class="mt-5 text-xl font-black">AI × Data × Marketing 跨域整合</h3>
+                <p class="mt-3 leading-7 text-slate-600">把技術、流程、資料與策略串接成商業語言，協助企業從工具使用走向成果創造。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal lg:col-span-2 flex justify-center">
+            <div class="about-portrait-large">
+              <img src="../photos01/鍾皓軒-headshot-01.png" alt="鍾皓軒 Howard Chung" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+      Training & Project Gallery
+    ========================================================= -->
+    <section id="gallery" class="px-4 pb-24">
+      <div class="mx-auto max-w-7xl">
+        <div class="reveal mx-auto max-w-3xl text-center">
+          <p class="text-sm font-black uppercase tracking-[0.28em] text-blue-700">Training & Project Moments</p>
+          <h2 class="section-title mt-4 text-4xl font-black md:text-6xl">內訓與專案現場</h2>
+          <p class="mt-6 text-lg leading-8 text-slate-600">
+            透過企業內訓、專案發表與產業交流場景，展示 AI 教學與實戰導入的能量。
+          </p>
+        </div>
+
+        <div class="stagger mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="glass-card reveal overflow-hidden rounded-[2rem]" style="--i:0">
+            <img src="../photos01/%E5%9C%8B%E7%A7%91%E6%9C%83-expo-stage-01.jpg" alt="國科會專案發表現場" class="gallery-img h-56 w-full cursor-zoom-in object-cover" loading="lazy" data-full="../photos01/%E5%9C%8B%E7%A7%91%E6%9C%83-expo-stage-01.jpg" />
+            <div class="p-5">
+              <p class="text-xs font-black uppercase tracking-[0.3em] text-slate-400">Expo</p>
+              <h3 class="mt-2 text-xl font-black">國科會專案發表</h3>
+              <p class="mt-2 text-sm leading-6 text-slate-600">專案舞台分享 AI 應用成果與落地策略。</p>
+            </div>
+          </article>
+
+          <article class="glass-card reveal overflow-hidden rounded-[2rem]" style="--i:1">
+            <img src="../photos01/%E5%8F%B0%E7%81%A3%20Top3%20IC%E8%A8%AD%E8%A8%88-expo-stage-02.jpg" alt="台灣 Top3 IC 設計企業發表會" class="gallery-img h-56 w-full cursor-zoom-in object-cover" loading="lazy" data-full="../photos01/%E5%8F%B0%E7%81%A3%20Top3%20IC%E8%A8%AD%E8%A8%88-expo-stage-02.jpg" />
+            <div class="p-5">
+              <p class="text-xs font-black uppercase tracking-[0.3em] text-slate-400">Expo</p>
+              <h3 class="mt-2 text-xl font-black">Top3 IC 設計發表會</h3>
+              <p class="mt-2 text-sm leading-6 text-slate-600">聚焦 AI 與數據如何驅動高科技產業決策。</p>
+            </div>
+          </article>
+
+          <article class="glass-card reveal overflow-hidden rounded-[2rem]" style="--i:2">
+            <img src="../photos01/%E5%8F%B0%E7%81%A3%20Top3%20%E8%88%AA%E7%A9%BA%E6%A5%AD-training-classroom-04.png" alt="台灣 Top3 航空業內訓" class="gallery-img h-56 w-full cursor-zoom-in object-cover" loading="lazy" data-full="../photos01/%E5%8F%B0%E7%81%A3%20Top3%20%E8%88%AA%E7%A9%BA%E6%A5%AD-training-classroom-04.png" />
+            <div class="p-5">
+              <p class="text-xs font-black uppercase tracking-[0.3em] text-slate-400">Training</p>
+              <h3 class="mt-2 text-xl font-black">Top3 航空業內訓</h3>
+              <p class="mt-2 text-sm leading-6 text-slate-600">企業內訓聚焦 AI 工作流程與實戰應用。</p>
+            </div>
+          </article>
+
+          <article class="glass-card reveal overflow-hidden rounded-[2rem]" style="--i:3">
+            <img src="../photos01/%E5%8F%B0%E7%81%A3%20Top3%20%E9%9B%BB%E4%BF%A1%E6%A5%AD-training-classroom-01.png" alt="台灣 Top3 電信業內訓" class="gallery-img h-56 w-full cursor-zoom-in object-cover" loading="lazy" data-full="../photos01/%E5%8F%B0%E7%81%A3%20Top3%20%E9%9B%BB%E4%BF%A1%E6%A5%AD-training-classroom-01.png" />
+            <div class="p-5">
+              <p class="text-xs font-black uppercase tracking-[0.3em] text-slate-400">Training</p>
+              <h3 class="mt-2 text-xl font-black">Top3 電信業內訓</h3>
+              <p class="mt-2 text-sm leading-6 text-slate-600">以 AI 轉型工具箱啟動跨部門協作。</p>
+            </div>
+          </article>
+
+          <article class="glass-card reveal overflow-hidden rounded-[2rem]" style="--i:4">
+            <img src="../photos01/%E5%B7%A5%E7%A0%94%E9%99%A2-training-classroom-02.png" alt="工研院內訓課程" class="gallery-img h-56 w-full cursor-zoom-in object-cover" loading="lazy" data-full="../photos01/%E5%B7%A5%E7%A0%94%E9%99%A2-training-classroom-02.png" />
+            <div class="p-5">
+              <p class="text-xs font-black uppercase tracking-[0.3em] text-slate-400">Training</p>
+              <h3 class="mt-2 text-xl font-black">工研院 AI 訓練</h3>
+              <p class="mt-2 text-sm leading-6 text-slate-600">整合資料分析與 AI 導入的核心方法論。</p>
+            </div>
+          </article>
+
+          <article class="glass-card reveal overflow-hidden rounded-[2rem]" style="--i:5">
+            <img src="../photos01/%E8%B3%87%E7%AD%96%E6%9C%83-training-classroom-03.png" alt="資策會內訓課程" class="gallery-img h-56 w-full cursor-zoom-in object-cover" loading="lazy" data-full="../photos01/%E8%B3%87%E7%AD%96%E6%9C%83-training-classroom-03.png" />
+            <div class="p-5">
+              <p class="text-xs font-black uppercase tracking-[0.3em] text-slate-400">Training</p>
+              <h3 class="mt-2 text-xl font-black">資策會 AI 實戰</h3>
+              <p class="mt-2 text-sm leading-6 text-slate-600">聚焦可複用的 AI 專案流程與工具。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+      AI Solutions
+    ========================================================= -->
+    <section id="solutions" class="px-4 py-24">
+      <div class="mx-auto max-w-7xl">
+        <div class="reveal mx-auto max-w-3xl text-center">
+          <p class="text-sm font-black uppercase tracking-[0.28em] text-blue-700">Practical AI Solutions for Business Growth</p>
+          <h2 class="section-title mt-4 text-4xl font-black md:text-6xl">AI 解決方案服務</h2>
+          <p class="mt-6 text-lg leading-8 text-slate-600">
+            以企業真實問題為起點，從工具、流程、知識到團隊能力，打造可落地、可衡量、可擴張的 AI 應用系統。
+          </p>
+        </div>
+
+        <div class="mt-16 grid gap-8 lg:grid-cols-2">
+          <!-- Category A -->
+          <div class="reveal rounded-[2rem] border border-blue-100 bg-white/50 p-5 backdrop-blur-xl md:p-7">
+            <div class="mb-6 inline-flex rounded-full bg-gradient-to-r from-[#005BAC] to-[#2F8CFF] px-4 py-2 text-sm font-black text-white shadow-glow">
+              A. 技術導入與自動化服務
+            </div>
+            <div class="stagger grid gap-4">
+              <article class="glass-card reveal rounded-3xl p-6" style="--i:0">
+                <span class="icon-badge">💬</span>
+                <h3 class="mt-4 text-xl font-black">客製化 Chatbot 開發</h3>
+                <p class="mt-3 leading-7 text-slate-600">應用於客服、銷售、內部知識查詢與流程引導，讓知識即時可用。</p>
+              </article>
+              <article class="glass-card reveal rounded-3xl p-6" style="--i:1">
+                <span class="icon-badge">▣</span>
+                <h3 class="mt-4 text-xl font-black">企業 AI 教育訓練</h3>
+                <p class="mt-3 leading-7 text-slate-600">協助團隊建立 AI 工具使用能力、Prompt 思維與現場實戰流程。</p>
+              </article>
+              <article class="glass-card reveal rounded-3xl p-6" style="--i:2">
+                <span class="icon-badge">↻</span>
+                <h3 class="mt-4 text-xl font-black">工作流程自動化 RPA</h3>
+                <p class="mt-3 leading-7 text-slate-600">整合重複性行政、報表與資料處理任務，把時間還給高價值決策。</p>
+              </article>
+              <article class="glass-card reveal rounded-3xl p-6" style="--i:3">
+                <span class="icon-badge">✧</span>
+                <h3 class="mt-4 text-xl font-black">AI 繪圖與設計輔助</h3>
+                <p class="mt-3 leading-7 text-slate-600">提升品牌內容、提案視覺與行銷素材產出效率，維持一致質感。</p>
+              </article>
+              <article class="glass-card reveal rounded-3xl p-6" style="--i:4">
+                <span class="icon-badge">📈</span>
+                <h3 class="mt-4 text-xl font-black">數據分析架構與預測模型</h3>
+                <p class="mt-3 leading-7 text-slate-600">建立可追蹤、可解讀、可預測的資料架構，讓決策更具前瞻性。</p>
+              </article>
+            </div>
+          </div>
+
+          <!-- Category B -->
+          <div class="reveal rounded-[2rem] border border-blue-100 bg-white/50 p-5 backdrop-blur-xl md:p-7">
+            <div class="mb-6 inline-flex rounded-full bg-gradient-to-r from-[#2F8CFF] to-[#00A99D] px-4 py-2 text-sm font-black text-white shadow-glow">
+              B. AI 策略規劃與組織賦能
+            </div>
+            <div class="stagger grid gap-4">
+              <article class="glass-card reveal rounded-3xl p-6" style="--i:0">
+                <span class="icon-badge">◇</span>
+                <h3 class="mt-4 text-xl font-black">私有化知識庫建置</h3>
+                <p class="mt-3 leading-7 text-slate-600">將內部文件、經驗與流程轉化為可查詢、可應用的智慧資產。</p>
+              </article>
+              <article class="glass-card reveal rounded-3xl p-6" style="--i:1">
+                <span class="icon-badge">01</span>
+                <h3 class="mt-4 text-xl font-black">從 0 到 1 AI 團隊建置顧問</h3>
+                <p class="mt-3 leading-7 text-slate-600">協助企業規劃人才分工、導入流程、治理規範與應用場景。</p>
+              </article>
+              <article class="glass-card reveal rounded-3xl p-6" style="--i:2">
+                <span class="icon-badge">⟡</span>
+                <h3 class="mt-4 text-xl font-black">行銷自動化漏斗設計</h3>
+                <p class="mt-3 leading-7 text-slate-600">串接內容、名單、銷售與數據追蹤，讓成長流程更清楚可控。</p>
+              </article>
+              <article class="glass-card reveal rounded-3xl p-6" style="--i:3">
+                <span class="icon-badge">⌖</span>
+                <h3 class="mt-4 text-xl font-black">AI 應用場景盤點與導入路線圖</h3>
+                <p class="mt-3 leading-7 text-slate-600">找出最適合落地的 AI 應用切入點，降低導入風險並放大成果。</p>
+              </article>
+              <article class="glass-card reveal rounded-3xl p-6" style="--i:4">
+                <span class="icon-badge">∞</span>
+                <h3 class="mt-4 text-xl font-black">AI × Data × Marketing 成長策略</h3>
+                <p class="mt-3 leading-7 text-slate-600">讓 AI 成為企業營運升級、顧客體驗與商業成長的重要推進器。</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+      Case Studies
+    ========================================================= -->
+    <section id="cases" class="px-4 py-24">
+      <div class="mx-auto max-w-7xl">
+        <div class="reveal flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div>
+            <p class="eyebrow">From AI Learning to Business Impact</p>
+            <h2 class="section-title mt-5 text-4xl font-black md:text-6xl">實戰案例</h2>
+          </div>
+          <p class="max-w-2xl text-lg leading-8 text-slate-600">
+            從問題診斷、解法設計到成果落地，將 AI 學習轉化為企業能真正使用的流程、工具與決策能力。
+          </p>
+        </div>
+
+        <div class="stagger mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <article class="glass-card reveal rounded-[2rem] p-6" style="--i:0">
+            <span class="chip rounded-full px-3 py-1 text-xs font-black text-blue-700">Training</span>
+            <h3 class="mt-5 text-2xl font-black">企業 AI 教育訓練</h3>
+            <div class="mt-6 space-y-4 text-sm leading-7 text-slate-600">
+              <p><strong class="text-ink">問題：</strong>團隊知道 AI 很重要，卻不知道如何用在每日工作。</p>
+              <p><strong class="text-ink">解法：</strong>設計角色別工作坊、Prompt 框架與可複用任務模板。</p>
+              <p><strong class="text-ink">成果：</strong>建立 AI 工具應用能力與落地思維，提升跨部門協作效率。</p>
+            </div>
+          </article>
+
+          <article class="glass-card reveal rounded-[2rem] p-6" style="--i:1">
+            <span class="chip rounded-full px-3 py-1 text-xs font-black text-violet-700">Data Science</span>
+            <h3 class="mt-5 text-2xl font-black">行銷資料科學課程</h3>
+            <div class="mt-6 space-y-4 text-sm leading-7 text-slate-600">
+              <p><strong class="text-ink">問題：</strong>行銷決策過度依賴經驗，缺乏可追蹤數據依據。</p>
+              <p><strong class="text-ink">解法：</strong>用 Python、數據分析與市場洞察建立決策流程。</p>
+              <p><strong class="text-ink">成果：</strong>讓團隊把數據洞察轉化為可執行策略與成效衡量。</p>
+            </div>
+          </article>
+
+          <article class="glass-card reveal rounded-[2rem] p-6" style="--i:2">
+            <span class="chip rounded-full px-3 py-1 text-xs font-black text-emerald-700">Knowledge AI</span>
+            <h3 class="mt-5 text-2xl font-black">私有知識庫與 Chatbot</h3>
+            <div class="mt-6 space-y-4 text-sm leading-7 text-slate-600">
+              <p><strong class="text-ink">問題：</strong>知識散落在文件、人員與流程中，查找成本高。</p>
+              <p><strong class="text-ink">解法：</strong>整合文件、FAQ 與 SOP，建立可查詢的 AI 知識入口。</p>
+              <p><strong class="text-ink">成果：</strong>提高內部查詢、客服回應與新人訓練效率。</p>
+            </div>
+          </article>
+
+          <article class="glass-card reveal rounded-[2rem] p-6" style="--i:3">
+            <span class="chip rounded-full px-3 py-1 text-xs font-black text-blue-700">Automation</span>
+            <h3 class="mt-5 text-2xl font-black">AI 行銷自動化流程</h3>
+            <div class="mt-6 space-y-4 text-sm leading-7 text-slate-600">
+              <p><strong class="text-ink">問題：</strong>內容、名單、銷售與追蹤斷裂，成長效率不穩定。</p>
+              <p><strong class="text-ink">解法：</strong>建立漏斗架構、自動化節點與資料回饋機制。</p>
+              <p><strong class="text-ink">成果：</strong>提高成長流程透明度，讓行銷投資更容易被衡量。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+      Tech Insights Blog
+    ========================================================= -->
+    <section id="insights" class="px-4 py-24">
+      <div class="mx-auto max-w-7xl">
+        <div class="reveal mx-auto max-w-3xl text-center">
+          <p class="text-sm font-black uppercase tracking-[0.28em] text-blue-700">Insights on AI, Data Science and Marketing Strategy</p>
+          <h2 class="section-title mt-4 text-4xl font-black md:text-6xl">技術部落格</h2>
+          <p class="mt-6 text-lg leading-8 text-slate-600">
+            分享企業 AI 導入、資料科學決策與行銷成長策略的實戰觀點。
+          </p>
+        </div>
+
+        <div class="stagger mt-14 grid gap-6 lg:grid-cols-3">
+          <article class="glass-card reveal rounded-[2rem] p-7" style="--i:0">
+            <div class="flex items-center justify-between">
+              <span class="chip rounded-full px-3 py-1 text-xs font-black text-blue-700">AI Strategy</span>
+              <time class="text-xs font-bold text-slate-400">2026.01.12</time>
+            </div>
+            <h3 class="mt-7 text-2xl font-black leading-tight">企業導入 AI 前，最該先釐清的三件事</h3>
+            <p class="mt-4 leading-8 text-slate-600">不是先買工具，而是先確認場景、資料與流程。用正確問題定義，降低導入成本與組織摩擦。</p>
+            <a href="#contact" class="mt-7 inline-flex font-black text-blue-700 hover:text-emerald-600">Read More →</a>
+          </article>
+
+          <article class="glass-card reveal rounded-[2rem] p-7" style="--i:1">
+            <div class="flex items-center justify-between">
+              <span class="chip rounded-full px-3 py-1 text-xs font-black text-violet-700">Workflow</span>
+              <time class="text-xs font-bold text-slate-400">2026.02.08</time>
+            </div>
+            <h3 class="mt-7 text-2xl font-black leading-tight">從 Prompt Engineering 到 AI Workflow：企業如何真正提升效率</h3>
+            <p class="mt-4 leading-8 text-slate-600">Prompt 只是起點，真正的效率來自任務拆解、流程重組、資料回流與可維護的標準作業。</p>
+            <a href="#contact" class="mt-7 inline-flex font-black text-blue-700 hover:text-emerald-600">Read More →</a>
+          </article>
+
+          <article class="glass-card reveal rounded-[2rem] p-7" style="--i:2">
+            <div class="flex items-center justify-between">
+              <span class="chip rounded-full px-3 py-1 text-xs font-black text-emerald-700">Marketing Data</span>
+              <time class="text-xs font-bold text-slate-400">2026.03.18</time>
+            </div>
+            <h3 class="mt-7 text-2xl font-black leading-tight">為什麼行銷決策需要資料科學，而不只是經驗</h3>
+            <p class="mt-4 leading-8 text-slate-600">經驗能判斷方向，資料能校準假設。當兩者結合，行銷策略才能被追蹤、優化與複製。</p>
+            <a href="#contact" class="mt-7 inline-flex font-black text-blue-700 hover:text-emerald-600">Read More →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+      Community & Request Form
+    ========================================================= -->
+    <section id="community" class="px-4 pb-24">
+      <div class="mx-auto max-w-7xl">
+        <div class="reveal grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div class="glass-card rounded-[2rem] p-7">
+            <div class="flex items-center justify-between">
+              <span class="chip rounded-full px-3 py-1 text-xs font-black text-blue-700">Dependencies</span>
+              <span class="text-xs font-bold text-slate-400">External Links</span>
+            </div>
+            <h3 class="mt-6 text-2xl font-black">多元社群連結</h3>
+            <p class="mt-3 leading-8 text-slate-600">用外部依賴庫的方式排列展示，讓社群連結更清楚可見。</p>
+
+            <div class="mt-6 grid gap-3 sm:grid-cols-2">
+              <a href="https://aistudy.pse.is/linemdsgroup" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 rounded-2xl border border-blue-100 bg-white/70 px-4 py-3 text-sm font-bold text-slate-700 transition hover:-translate-y-1 hover:text-emerald-600">
+                <span class="icon-badge"><i class="fa-brands fa-line"></i></span>
+                LINE
+              </a>
+              <a href="https://www.facebook.com/MarketingDataScienceTMR/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 rounded-2xl border border-blue-100 bg-white/70 px-4 py-3 text-sm font-bold text-slate-700 transition hover:-translate-y-1 hover:text-blue-700">
+                <span class="icon-badge"><i class="fa-brands fa-facebook"></i></span>
+                Facebook
+              </a>
+              <a href="https://www.linkedin.com/in/howardzhong/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 rounded-2xl border border-blue-100 bg-white/70 px-4 py-3 text-sm font-bold text-slate-700 transition hover:-translate-y-1 hover:text-blue-800">
+                <span class="icon-badge"><i class="fa-brands fa-linkedin"></i></span>
+                LinkedIn
+              </a>
+              <a href="https://github.com/HowardNTUST" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 rounded-2xl border border-blue-100 bg-white/70 px-4 py-3 text-sm font-bold text-slate-700 transition hover:-translate-y-1 hover:text-slate-900">
+                <span class="icon-badge"><i class="fa-brands fa-github"></i></span>
+                GitHub
+              </a>
+            </div>
+          </div>
+
+          <div class="glass-card rounded-[2rem] p-7">
+            <p class="eyebrow">Contact Form</p>
+            <h3 class="mt-4 text-2xl font-black">填寫需求表單</h3>
+            <p class="mt-4 leading-8 text-slate-600">
+              請描述你的需求、時程與預期目標，我會依照內容安排後續的諮詢與回覆。
+            </p>
+            <a href="https://forms.gle/mCDu2BFK6DuZKxvF6" target="_blank" rel="noopener noreferrer" class="cta-btn mt-7 inline-flex rounded-full px-6 py-4 text-center text-sm font-black text-blue-700">
+              前往填寫表單
+              <span class="status">Status: Form Ready</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+      Core Products
+    ========================================================= -->
+    <section id="core-products" class="px-4 pb-24">
+      <div class="mx-auto max-w-7xl">
+        <div class="reveal mx-auto max-w-3xl text-center">
+          <p class="text-sm font-black uppercase tracking-[0.28em] text-blue-700">Core Products & Tech Solutions</p>
+          <h2 class="section-title mt-4 text-4xl font-black md:text-6xl">核心產品與技術解決方案</h2>
+          <p class="mt-6 text-lg leading-8 text-slate-600">
+            聚焦高價值 AI 產品與解決方案，從學習社群、保險專業到語音知識整理一次到位。
+          </p>
+        </div>
+
+        <div class="stagger mt-14 grid gap-6 lg:grid-cols-3">
+          <article class="glass-card reveal rounded-[2rem] p-7" style="--i:0">
+            <div class="flex items-center justify-between">
+              <span class="icon-badge"><i class="fa-solid fa-chart-line"></i></span>
+              <span class="chip rounded-full px-3 py-1 text-xs font-black text-blue-700">Learning Circle</span>
+            </div>
+            <h3 class="mt-6 text-2xl font-black">Vibe Coding：行銷數據分析學習圈</h3>
+            <p class="mt-4 leading-8 text-slate-600">
+              訂閱 Vibe Coding 行銷數據分析學習圈，跟著我們一同走入行銷數據分析與 vibe coding 自動化的世界。
+            </p>
+            <a href="https://courses.taiwanmds.com/product/information?p=02c0c7b9ec7b11f0b3480242ac110002" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex font-black text-blue-700 hover:text-emerald-600">立即前往 →</a>
+          </article>
+
+          <article class="glass-card reveal rounded-[2rem] p-7" style="--i:1">
+            <div class="flex items-center justify-between">
+              <span class="icon-badge"><i class="fa-solid fa-robot"></i></span>
+              <span class="chip rounded-full px-3 py-1 text-xs font-black text-blue-700">Insurance AI</span>
+            </div>
+            <h3 class="mt-6 text-2xl font-black">保險機器人：當經驗成為奇點，AI 更是保險未來的引擎</h3>
+            <p class="mt-4 leading-8 text-slate-600">
+              從經驗、法條到正確說明，奇點讓每位保險專業者擁有一位懂法的科技夥伴。
+            </p>
+            <a href="https://judgai.com/" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex font-black text-blue-700 hover:text-emerald-600">立即前往 →</a>
+          </article>
+
+          <article class="glass-card reveal rounded-[2rem] p-7" style="--i:2">
+            <div class="flex items-center justify-between">
+              <span class="icon-badge"><i class="fa-solid fa-microphone-lines"></i></span>
+              <span class="chip rounded-full px-3 py-1 text-xs font-black text-blue-700">Voice + RAG</span>
+            </div>
+            <h3 class="mt-6 text-2xl font-black">SayMind：一站式語音轉錄，AI 筆記整理，自動口條訓練</h3>
+            <p class="mt-4 leading-8 text-slate-600">
+              使用 LangChain 搭建的 RAG 系統，可上傳 PDF 並進行精準問答。
+            </p>
+            <a href="https://judgai.com/saymind" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex font-black text-blue-700 hover:text-emerald-600">立即前往 →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+      Contact / Booking
+    ========================================================= -->
+    <section id="contact" class="px-4 py-24">
+      <div class="mx-auto max-w-7xl">
+        <div class="reveal relative overflow-hidden rounded-[2.4rem] border border-blue-100 bg-gradient-to-br from-[#F7F9FC] via-white to-[#F7F9FC] p-8 shadow-glow md:p-14 lg:p-16">
+          <div class="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-blue-300/20 blur-3xl" aria-hidden="true"></div>
+          <div class="absolute -bottom-28 left-1/4 h-72 w-72 rounded-full bg-emerald-300/20 blur-3xl" aria-hidden="true"></div>
+
+          <div class="relative grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+            <div>
+              <p class="eyebrow">Book a Strategy Session</p>
+              <h2 class="section-title mt-5 text-4xl font-black md:text-6xl">預約 AI 轉型諮詢</h2>
+              <p class="mt-7 max-w-3xl text-lg leading-9 text-slate-600">
+                如果你的企業正在思考如何導入 AI、建立資料分析能力、設計自動化流程，或希望讓團隊真正掌握 AI 工具，歡迎預約一次初步諮詢。
+              </p>
+
+              <a href="https://calendar.app.google/QZTvS9433tJHJcwT6" target="_blank" rel="noopener noreferrer" class="cta-btn mt-9 inline-flex rounded-full px-8 py-5 text-center text-lg font-black text-blue-700">
+                立即預約諮詢
+                <span class="status">Status: Ready to Connect</span>
+              </a>
+            </div>
+
+            <div class="grid gap-4">
+              <div class="glass-card rounded-3xl p-6">
+                <span class="icon-badge">01</span>
+                <h3 class="mt-4 text-xl font-black">AI 導入策略</h3>
+                <p class="mt-2 leading-7 text-slate-600">盤點可落地場景，設計導入路線圖與效益衡量方式。</p>
+              </div>
+              <div class="glass-card rounded-3xl p-6">
+                <span class="icon-badge">02</span>
+                <h3 class="mt-4 text-xl font-black">企業教育訓練</h3>
+                <p class="mt-2 leading-7 text-slate-600">協助團隊建立 AI 工具、Prompt 與工作流程應用能力。</p>
+              </div>
+              <div class="glass-card rounded-3xl p-6">
+                <span class="icon-badge">03</span>
+                <h3 class="mt-4 text-xl font-black">自動化與知識庫建置</h3>
+                <p class="mt-2 leading-7 text-slate-600">把重複流程與分散知識轉化為可持續運作的智慧系統。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================
+    Footer
+  ========================================================= -->
+  <footer class="border-t border-blue-100 bg-white/60 px-4 py-12 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-7xl flex-col justify-between gap-6 md:flex-row md:items-center">
+      <div>
+        <p class="text-xl font-black text-ink">Howard Chung｜鍾皓軒</p>
+        <p class="mt-2 text-sm font-semibold text-slate-600">Founder of Taiwan Marketing Research Co., Ltd.</p>
+        <p class="mt-1 text-sm text-slate-500">AI Consultant｜Prompt Engineer｜AI Product Manager</p>
+      </div>
+      <p class="text-sm font-medium text-slate-500">© 2026 Howard Chung. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
+    <div class="lightbox-panel">
+      <button id="lightbox-close" class="lightbox-close" aria-label="Close preview">×</button>
+      <img id="lightbox-image" src="" alt="Gallery preview" />
+    </div>
+  </div>
+
+  <script>
+    /* =========================================================
+      Native JavaScript Interactions
+      1. Typewriter effect
+      2. Smooth scrolling
+      3. Mobile hamburger menu
+      4. Navbar scroll state
+      5. Section/card reveal animation
+      6. CTA hover status handled by CSS
+      7. Particle background
+      8. Light data-flow animations handled by CSS
+    ========================================================= */
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const header = document.getElementById('site-header');
+      const nav = header.querySelector('nav');
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+      const typewriter = document.getElementById('typewriter');
+      const targetText = 'Until Marketing Data science is common sense';
+
+      /* Navbar style on scroll */
+      function updateNavState() {
+        if (window.scrollY > 18) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      }
+
+      updateNavState();
+      window.addEventListener('scroll', updateNavState, { passive: true });
+
+      /* Mobile menu toggle */
+      function closeMobileMenu() {
+        menuBtn.classList.remove('active');
+        mobileMenu.classList.remove('open');
+        document.body.classList.remove('menu-open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      }
+
+      menuBtn.addEventListener('click', function () {
+        const isOpen = mobileMenu.classList.toggle('open');
+        menuBtn.classList.toggle('active', isOpen);
+        document.body.classList.toggle('menu-open', isOpen);
+        menuBtn.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      mobileLinks.forEach(function (link) {
+        link.addEventListener('click', closeMobileMenu);
+      });
+
+      /* Smooth scrolling with fixed-header offset */
+      document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener('click', function (event) {
+          const href = anchor.getAttribute('href');
+          if (!href || href === '#') return;
+
+          const target = document.querySelector(href);
+          if (!target) return;
+
+          event.preventDefault();
+          const headerOffset = 96;
+          const elementPosition = target.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = elementPosition - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        });
+      });
+
+      /* Typewriter animation */
+      let charIndex = 0;
+      const typingSpeed = 64;
+
+      function typeNextChar() {
+        if (!typewriter) return;
+        typewriter.textContent = targetText.slice(0, charIndex);
+        charIndex += 1;
+
+        if (charIndex <= targetText.length) {
+          window.setTimeout(typeNextChar, typingSpeed + Math.random() * 34);
+        }
+      }
+
+      window.setTimeout(typeNextChar, 420);
+
+      /* IntersectionObserver reveal animation */
+      const revealItems = document.querySelectorAll('.reveal');
+      const revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.14,
+        rootMargin: '0px 0px -8% 0px'
+      });
+
+      revealItems.forEach(function (item) {
+        revealObserver.observe(item);
+      });
+
+      /* Glass card cursor glow position */
+      document.querySelectorAll('.glass-card').forEach(function (card) {
+        card.addEventListener('mousemove', function (event) {
+          const rect = card.getBoundingClientRect();
+          const x = ((event.clientX - rect.left) / rect.width) * 100;
+          const y = ((event.clientY - rect.top) / rect.height) * 100;
+          card.style.setProperty('--mx', x + '%');
+          card.style.setProperty('--my', y + '%');
+        });
+      });
+
+      /* Gallery lightbox */
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightbox-image');
+      const lightboxClose = document.getElementById('lightbox-close');
+
+      function closeLightbox() {
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        lightboxImage.src = '';
+      }
+
+      document.querySelectorAll('.gallery-img').forEach(function (img) {
+        img.addEventListener('click', function () {
+          const src = img.getAttribute('data-full') || img.getAttribute('src');
+          lightboxImage.src = src;
+          lightbox.classList.add('open');
+          lightbox.setAttribute('aria-hidden', 'false');
+        });
+      });
+
+      lightboxClose.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', function (event) {
+        if (event.target === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && lightbox.classList.contains('open')) {
+          closeLightbox();
+        }
+      });
+
+      /* Particle and node background canvas */
+      const canvas = document.getElementById('particle-canvas');
+      const ctx = canvas.getContext('2d');
+      let width = 0;
+      let height = 0;
+      let particles = [];
+      let animationFrameId;
+
+      function resizeCanvas() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = Math.floor(width * dpr);
+        canvas.height = Math.floor(height * dpr);
+        canvas.style.width = width + 'px';
+        canvas.style.height = height + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        createParticles();
+      }
+
+      function createParticles() {
+        const count = Math.min(76, Math.max(36, Math.floor(width / 24)));
+        particles = Array.from({ length: count }, function () {
+          return {
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * 0.28,
+            vy: (Math.random() - 0.5) * 0.28,
+            r: Math.random() * 1.8 + 1.1,
+            alpha: Math.random() * 0.32 + 0.16
+          };
+        });
+      }
+
+      function drawParticles() {
+        ctx.clearRect(0, 0, width, height);
+
+        particles.forEach(function (p) {
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.x < -20) p.x = width + 20;
+          if (p.x > width + 20) p.x = -20;
+          if (p.y < -20) p.y = height + 20;
+          if (p.y > height + 20) p.y = -20;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(0, 91, 172,' + p.alpha + ')';
+          ctx.fill();
+        });
+
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const a = particles[i];
+            const b = particles[j];
+            const dx = a.x - b.x;
+            const dy = a.y - b.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < 128) {
+              const opacity = (1 - distance / 128) * 0.16;
+              ctx.beginPath();
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b.x, b.y);
+              ctx.strokeStyle = 'rgba(0, 91, 172,' + opacity + ')';
+              ctx.lineWidth = 1;
+              ctx.stroke();
+            }
+          }
+        }
+
+        animationFrameId = window.requestAnimationFrame(drawParticles);
+      }
+
+      resizeCanvas();
+      drawParticles();
+
+      window.addEventListener('resize', function () {
+        window.cancelAnimationFrame(animationFrameId);
+        resizeCanvas();
+        drawParticles();
+      });
+    });
+  </script>
+</body>
+</html>
